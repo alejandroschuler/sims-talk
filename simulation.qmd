@@ -625,6 +625,36 @@ ESTIMATORS <- list(dm = diff_means, tmle = tmle, aipw = aipw)
 - Save the raw `results` object to file, possibly with a pointer to the commit hash for replicability
 - If you optimize runtime, you don't have to worry so much about saving carefully since it's so fast to regenerate!
 
+## Parallelize with `furrr` {.smaller}
+
+```{r}
+#| exec: false
+
+library(furrr)
+plan(multicore, workers = 10)
+
+1:REPS |> furrr::future_map(\(rep) {
+    DGPS |> imap(\(dgp, dgp_name) {
+        nuisances <- dgp |> draw(N) |> fit_learners()
+        data <- dgp |> draw(N)
+
+        ESTIMATORS |> imap(\(estimator, estimator_name) {
+            res <- estimator(data, nuisances)
+            tibble(
+                rep       = rep,
+                DGP       = dgp_name,
+                estimator = estimator_name,
+                est       = res$est,
+                se        = res$est_se
+            )
+        }) |> bind_rows()
+    }) |> bind_rows()
+}) |> bind_rows() -> results
+```
+
+- before doing this, test with `REPS = 5` and possibly fewer DGPs and estimators.
+- use `future_map` instead of `map` and set up a parallel plan with `plan()`
+
 ## Analysis {.smaller}
 
 ```{r}

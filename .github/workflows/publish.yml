@@ -41,6 +41,11 @@ jobs:
           packages: |
             any::rmarkdown
             any::knitr
+            any::tidyverse
+            any::magrittr
+            any:zeallot
+            any::tidymodels
+            any::furrr
 
       - name: Render QMD
         run: quarto render simulation.qmd
