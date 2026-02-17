@@ -43,7 +43,7 @@ jobs:
             any::knitr
             any::tidyverse
             any::magrittr
-            any:zeallot
+            any::zeallot
             any::tidymodels
             any::furrr
 
