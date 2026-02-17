@@ -628,7 +628,7 @@ ESTIMATORS <- list(dm = diff_means, tmle = tmle, aipw = aipw)
 ## Parallelize with `furrr` {.smaller}
 
 ```{r}
-#| exec: false
+#| eval: false
 
 library(furrr)
 plan(multicore, workers = 10)
