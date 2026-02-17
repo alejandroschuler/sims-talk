@@ -46,6 +46,7 @@ jobs:
             any::zeallot
             any::tidymodels
             any::furrr
+            any::earth
 
       - name: Render QMD
         run: quarto render simulation.qmd
