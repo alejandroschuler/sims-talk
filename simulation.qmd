@@ -74,7 +74,7 @@ digraph {
     - has practical utility
     - builds insight
     - is honest and well-scoped
-- Many claims can be based on a single method. Prioritize:
+- Many claims are possible. Prioritize:
     - relevance to audience
     - potential to change practice or thinking
 - sims often support claims like: *"[method] works [well] when [condition] and not when [other condition]"*
