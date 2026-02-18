@@ -74,7 +74,7 @@ digraph {
     - has practical utility
     - builds insight
     - is honest and well-scoped
-- Many claims are possible. Prioritize:
+- Many claims are possible. Less is more! Prioritize:
     - relevance to audience
     - potential to change practice or thinking
 - sims often support claims like: *"[method] works [well] when [condition] and not when [other condition]"*
@@ -711,6 +711,7 @@ From here you can use `tidyr`, `kable`, and `ggplot` to make tables and figures.
 
 ::: {.incremental}
 * good claims are not overstated!
+* edge cases clarify claims: design sims to archetype extremes
 :::
 
 
